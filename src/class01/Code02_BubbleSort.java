@@ -2,6 +2,13 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * 冒泡排序
+ * 从数组的最后位置，往前比较，如果比较的两个位置不满足顺序，那么交换，就想气泡从水滴往上冒一样
+ * 从最后位置往前冒泡，最终从0-N-1位置都有序了
+ * @author : zhanpenghong
+ * @date : 2022/11/11 11:50
+ */
 public class Code02_BubbleSort {
 
 	public static void bubbleSort(int[] arr) {

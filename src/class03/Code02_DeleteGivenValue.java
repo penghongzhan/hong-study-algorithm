@@ -1,5 +1,11 @@
 package class03;
 
+/**
+ * 删除链表中指定的节点
+ * 链表的算法题需要注意头节点的边界条件，这道题就非常典型
+ * @author : zhanpenghong
+ * @date : 2022/11/11 15:02
+ */
 public class Code02_DeleteGivenValue {
 
 	public static class Node {

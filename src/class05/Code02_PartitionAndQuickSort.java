@@ -1,33 +1,51 @@
 package class05;
 
+/**
+ * 排序
+ * 快排
+ * 快速排序
+ * 荷兰国旗
+ * @author : zhanpenghong
+ * @date : 2022/12/12 15:07
+ */
 public class Code02_PartitionAndQuickSort {
 
-	public static void swap(int[] arr, int i, int j) {
-		int tmp = arr[i];
-		arr[i] = arr[j];
-		arr[j] = tmp;
+	/**
+	 * 最优解
+	 */
+	public static void quickSort3(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return;
+		}
+		process3(arr, 0, arr.length - 1);
 	}
 
-	// arr[L..R]上，以arr[R]位置的数做划分值
-	// <= X > X
-	// <= X X
-	public static int partition(int[] arr, int L, int R) {
-		if (L > R) {
-			return -1;
+	public static void process3(int[] arr, int L, int R) {
+		if (L >= R) {
+			return;
 		}
-		if (L == R) {
-			return L;
+		swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
+		int[] equalArea = netherlandsFlag(arr, L, R);
+		process3(arr, L, equalArea[0] - 1);
+		process3(arr, equalArea[1] + 1, R);
+	}
+
+	public static void quickSort2(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return;
 		}
-		int lessEqual = L - 1;
-		int index = L;
-		while (index < R) {
-			if (arr[index] <= arr[R]) {
-				swap(arr, index, ++lessEqual);
-			}
-			index++;
+		process2(arr, 0, arr.length - 1);
+	}
+
+	// arr[L...R] 排有序，快排2.0方式
+	public static void process2(int[] arr, int L, int R) {
+		if (L >= R) {
+			return;
 		}
-		swap(arr, ++lessEqual, R);
-		return lessEqual;
+		// [ equalArea[0]  ,  equalArea[0]]
+		int[] equalArea = netherlandsFlag(arr, L, R);
+		process2(arr, L, equalArea[0] - 1);
+		process2(arr, equalArea[1] + 1, R);
 	}
 
 	// arr[L...R] 玩荷兰国旗问题的划分，以arr[R]做划分值
@@ -48,7 +66,7 @@ public class Code02_PartitionAndQuickSort {
 			} else if (arr[index] < arr[R]) {
 //				swap(arr, less + 1, index);
 //				less++;
-//				index++;						
+//				index++;
 				swap(arr, index++, ++less);
 			} else { // >
 				swap(arr, index, --more);
@@ -75,50 +93,32 @@ public class Code02_PartitionAndQuickSort {
 		process1(arr, M + 1, R);
 	}
 
-	
-	
-	
-	
-	
-	public static void quickSort2(int[] arr) {
-		if (arr == null || arr.length < 2) {
-			return;
+	// arr[L..R]上，以arr[R]位置的数做划分值
+	// <= X > X
+	// <= X X
+	public static int partition(int[] arr, int L, int R) {
+		if (L > R) {
+			return -1;
 		}
-		process2(arr, 0, arr.length - 1);
+		if (L == R) {
+			return L;
+		}
+		int lessEqual = L - 1;
+		int index = L;
+		while (index < R) {
+			if (arr[index] <= arr[R]) {
+				swap(arr, index, ++lessEqual);
+			}
+			index++;
+		}
+		swap(arr, ++lessEqual, R);
+		return lessEqual;
 	}
 
-	// arr[L...R] 排有序，快排2.0方式
-	public static void process2(int[] arr, int L, int R) {
-		if (L >= R) {
-			return;
-		}
-		// [ equalArea[0]  ,  equalArea[0]]
-		int[] equalArea = netherlandsFlag(arr, L, R);
-		process2(arr, L, equalArea[0] - 1);
-		process2(arr, equalArea[1] + 1, R);
-	}
-
-	
-	
-	
-	
-	
-	
-	public static void quickSort3(int[] arr) {
-		if (arr == null || arr.length < 2) {
-			return;
-		}
-		process3(arr, 0, arr.length - 1);
-	}
-
-	public static void process3(int[] arr, int L, int R) {
-		if (L >= R) {
-			return;
-		}
-		swap(arr, L + (int) (Math.random() * (R - L + 1)), R);
-		int[] equalArea = netherlandsFlag(arr, L, R);
-		process3(arr, L, equalArea[0] - 1);
-		process3(arr, equalArea[1] + 1, R);
+	public static void swap(int[] arr, int i, int j) {
+		int tmp = arr[i];
+		arr[i] = arr[j];
+		arr[j] = tmp;
 	}
 
 	// for test

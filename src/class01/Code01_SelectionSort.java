@@ -2,6 +2,12 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * 选择排序
+ * 每次选出最小的元素，放在数组的i维值，i从0-N-1
+ * @author : zhanpenghong
+ * @date : 2022/11/11 11:47
+ */
 public class Code01_SelectionSort {
 
 	public static void selectionSort(int[] arr) {

@@ -1,7 +1,7 @@
 package class04;
 
 //  本题测试链接 : https://leetcode.cn/problems/reverse-pairs/
-public class Code04_BiggerThanRightTwice {
+public class Code04_BiggerThanRightTwice_Hong02 {
 
 	public static int reversePairs(int[] arr) {
 		if (arr == null || arr.length < 2) {
@@ -23,12 +23,20 @@ public class Code04_BiggerThanRightTwice {
 		// [L....M] [M+1....R]
 		int ans = 0;
 		// 目前囊括进来的数，是从[M+1, windowR)
-		int windowR = m + 1;
-		for (int i = l; i <= m; i++) {
-			while (windowR <= r && (long) nums[i] > (long) nums[windowR] * 2) {
-				windowR++;
+		for (int i = m; i >= l; i--) {
+			int windowR = r;
+			int ppp = -1;
+			while (windowR > m) {
+				if ((long) nums[i] > (long) nums[windowR] * 2) {
+					ppp = windowR;
+					break;
+				} else {
+					windowR--;
+				}
 			}
-			ans += windowR - m - 1;
+			if (ppp > 0) {
+				ans += ppp - m;
+			}
 		}
 		int[] help = new int[r - l + 1];
 		int i = 0;

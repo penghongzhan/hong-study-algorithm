@@ -2,6 +2,12 @@ package class03;
 
 import java.util.Stack;
 
+/**
+ * 实现一个栈，能直接获取栈的最小值，O(1)
+ * 新增一个栈，存放当前的最小值，如果出栈的元素存在于最小值栈中，也从最小值栈中出栈
+ * @author : zhanpenghong
+ * @date : 2022/11/11 15:56
+ */
 public class Code05_GetMinStack {
 
 	public static class MyStack1 {

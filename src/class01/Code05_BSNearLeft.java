@@ -2,6 +2,11 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * 有序数组，找到>=value的最左位置
+ * @author : zhanpenghong
+ * @date : 2022/11/11 14:32
+ */
 public class Code05_BSNearLeft {
 
 	// 在arr上，找满足>=value的最左位置

@@ -2,6 +2,13 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * 有序数组，二分查找某个元素是否存在
+ * 数组的二分，就是操作左指针和右指针
+ * (R - L) >> 1 除以2取整
+ * @author : zhanpenghong
+ * @date : 2022/11/11 14:22
+ */
 public class Code04_BSExist {
 
 	public static boolean exist(int[] sortedArr, int num) {

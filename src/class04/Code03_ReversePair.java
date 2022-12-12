@@ -1,12 +1,39 @@
 package class04;
 
+/**
+ * 数组中，如果前一个数字大于后一个数字，这两个数字可以组成逆序对
+ * 给定一个数组，求其中逆序对的数量，时间复杂度O(NlogN)
+ * [7,5,6,4] 输出 5
+ * 在改变原顺序的基础上，随机选2个，如果逆序，则满足条件记一条
+ * 可以作为面试题
+ * @author : zhanpenghong
+ * @date : 2022/11/11 17:09
+ */
 public class Code03_ReversePair {
 
-	public static int reverPairNumber(int[] arr) {
+	public static int reversPairNumber(int[] arr) {
 		if (arr == null || arr.length < 2) {
 			return 0;
 		}
 		return process(arr, 0, arr.length - 1);
+	}
+
+	/**
+	 * 暴力解
+	 */
+	public static int reversPairNumberForce(int[] arr) {
+		if (arr == null || arr.length < 2) {
+			return 0;
+		}
+		int count = 0;
+		for (int i = 0; i < arr.length; i++) {
+			for (int j = i + 1; j < arr.length; j++) {
+				if (arr[i] > arr[j]) {
+					count++;
+				}
+			}
+		}
+		return count;
 	}
 
 	// arr[L..R]既要排好序，也要求逆序对数量返回
@@ -22,24 +49,28 @@ public class Code03_ReversePair {
 		return process(arr, l, mid) + process(arr, mid + 1, r) + merge(arr, l, mid, r);
 	}
 
-	public static int merge(int[] arr, int L, int m, int r) {
-		int[] help = new int[r - L + 1];
+	public static int merge(int[] nums, int l, int m, int r) {
+		int[] help = new int[r - l + 1];
 		int i = help.length - 1;
 		int p1 = m;
 		int p2 = r;
 		int res = 0;
-		while (p1 >= L && p2 > m) {
-			res += arr[p1] > arr[p2] ? (p2 - m) : 0;
-			help[i--] = arr[p1] > arr[p2] ? arr[p1--] : arr[p2--];
+		while (p1 >= l && p2 > m) {
+			if (nums[p1] > nums[p2]) {
+				help[i--] = nums[p1--];
+				res += (p2 - m);
+			} else {
+				help[i--] = nums[p2--];
+			}
 		}
-		while (p1 >= L) {
-			help[i--] = arr[p1--];
+		while (p1 >= l) {
+			help[i--] = nums[p1--];
 		}
 		while (p2 > m) {
-			help[i--] = arr[p2--];
+			help[i--] = nums[p2--];
 		}
 		for (i = 0; i < help.length; i++) {
-			arr[L + i] = help[i];
+			nums[l + i] = help[i];
 		}
 		return res;
 	}
@@ -117,7 +148,7 @@ public class Code03_ReversePair {
 		for (int i = 0; i < testTime; i++) {
 			int[] arr1 = generateRandomArray(maxSize, maxValue);
 			int[] arr2 = copyArray(arr1);
-			if (reverPairNumber(arr1) != comparator(arr2)) {
+			if (reversPairNumber(arr1) != comparator(arr2)) {
 				System.out.println("Oops!");
 				printArray(arr1);
 				printArray(arr2);

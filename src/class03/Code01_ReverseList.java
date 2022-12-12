@@ -3,6 +3,12 @@ package class03;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 反转链表：核心指针
+ * 三种常用的指针：pre（当前处理节点的上一个节点）、cur（当前处理节点）、next（当前处理节点的下一个节点）
+ * @author : zhanpenghong
+ * @date : 2022/11/11 14:48
+ */
 public class Code01_ReverseList {
 
 	public static class Node {
@@ -28,13 +34,14 @@ public class Code01_ReverseList {
 	//   a    ->   b    ->  c  ->  null
 	//   c    ->   b    ->  a  ->  null
 	public static Node reverseLinkedList(Node head) {
+		Node cur = head;
 		Node pre = null;
-		Node next = null;
-		while (head != null) {
-			next = head.next;
-			head.next = pre;
-			pre = head;
-			head = next;
+		Node next;
+		while (cur != null) {
+			next = cur.next;
+			cur.next = pre;
+			pre = cur;
+			cur = next;
 		}
 		return pre;
 	}

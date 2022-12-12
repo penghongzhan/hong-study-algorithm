@@ -1,5 +1,10 @@
 package class03;
 
+/**
+ * 二分查找数组中最大值
+ * @author : zhanpenghong
+ * @date : 2022/11/11 16:14
+ */
 public class Code08_GetMax {
 
 	// 求arr中的最大值

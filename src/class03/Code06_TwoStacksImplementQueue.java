@@ -2,6 +2,12 @@ package class03;
 
 import java.util.Stack;
 
+/**
+ * 两个栈实现队列
+ *
+ * @author : zhanpenghong
+ * @date : 2022/11/11 16:04
+ */
 public class Code06_TwoStacksImplementQueue {
 
 	public static class TwoStacksQueue {

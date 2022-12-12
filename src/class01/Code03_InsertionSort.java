@@ -2,6 +2,14 @@ package class01;
 
 import java.util.Arrays;
 
+/**
+ * 插入排序
+ * 从1到N遍历元素，i位置的元素，插入到它前面的list中适当的位置，保证有序
+ * 插入操作本身是一个交换操作，因为需要插入到合适的位置，不断跟前面的元素比较，比较的过程中顺带就交换了
+ * 不断的交换，最终到达的位置也就是需要插入的位置
+ * @author : zhanpenghong
+ * @date : 2022/11/11 14:08
+ */
 public class Code03_InsertionSort {
 
 	public static void insertionSort(int[] arr) {

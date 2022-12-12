@@ -4,6 +4,11 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * 双向链表实现栈和队列
+ * @author : zhanpenghong
+ * @date : 2022/11/11 15:49
+ */
 public class Code03_DoubleEndsQueueToStackAndQueue {
 
 	public static class Node<T> {

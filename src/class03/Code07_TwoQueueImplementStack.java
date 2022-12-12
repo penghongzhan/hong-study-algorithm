@@ -4,6 +4,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * 两个队列实现栈
+ * 不像栈实现队列，这个时间复杂度更高，每一次读操作都需要O(N)
+ * @author : zhanpenghong
+ * @date : 2022/11/11 16:08
+ */
 public class Code07_TwoQueueImplementStack {
 
 	public static class TwoQueueStack<T> {

@@ -1,5 +1,10 @@
 package class04;
 
+/**
+ * todo 不记得题目什么意思了
+ * @author : zhanpenghong
+ * @date : 2022/11/11 17:08
+ */
 public class Code02_SmallSum {
 
 	public static int smallSum(int[] arr) {
