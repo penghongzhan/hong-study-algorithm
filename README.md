@@ -1,4 +1,6 @@
 # hong-study-algorithm
+leetcode链接；https://leetcode.cn/?utm_source=LCUS&utm_medium=ip_redirect&utm_campaign=transfer2china
+
 算法和数据结构体系学习班
 
 1.课上所有代码：https://github.com/algorithmzuo

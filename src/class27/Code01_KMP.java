@@ -1,5 +1,12 @@
 package class27;
 
+/**
+ * kmp算法
+ * 判断是否是子串
+ * <a href="https://leetcode.cn/problems/find-the-index-of-the-first-occurrence-in-a-string/">28. 找出字符串中第一个匹配项的下标</a>
+ * @author : zhanpenghong
+ * @date : 2022/12/12 18:04
+ */
 public class Code01_KMP {
 
 	public static int getIndexOf(String s1, String s2) {
@@ -26,6 +33,14 @@ public class Code01_KMP {
 		return y == str2.length ? x - y : -1;
 	}
 
+	/**
+	 * match字符串的各个位置的字符之前的字符
+	 * 的最大前后缀相等程度
+	 * 返回结果举例：
+	 * a b a -> 1 (a)(a)
+	 * a b a b -> 2 (ab)(ab)
+	 * a b a b a -> 3 (aba)(aba)
+	 */
 	public static int[] getNextArray(char[] str2) {
 		if (str2.length == 1) {
 			return new int[] { -1 };

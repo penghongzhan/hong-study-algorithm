@@ -1,7 +1,12 @@
 package class05;
 
-// 这道题直接在leetcode测评：
-// https://leetcode.com/problems/count-of-range-sum/
+/**
+ * 区间和的个数
+ * <a href="https://leetcode.cn/problems/count-of-range-sum/">区间和的个数</a>
+ *
+ * @author : zhanpenghong
+ * @date : 2023/1/3 19:32
+ */
 public class Code01_CountOfRangeSum {
 
 	public static int countRangeSum(int[] nums, int lower, int upper) {
